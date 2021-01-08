@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app ='modelApp'>
+	<head>
+		<meta charset="utf-8">
+		<script src="angular.min.js"></script>
+		<script src="model2.js"></script>
+		<link rel="stylesheet" href="styles.css">
+		<title>College Website</title>
+	</head>
+	<body>
+		<h2>THIAGARAJAR COLLEGE OF ENGINEERING</h2>
+		<div ng-controller='repController'>
+			<h3>Faculty List</h3>
+			<input type=text ng-model="search1">
+			<ul>
+				<li ng-repeat="faculty in facultyList|filter :search1">{{faculty}}</li>
+			</ul>
+			<h3>Details list</h3>
+			<input type =text ng-model="search2.course" placeholder="course filter">
+			<table border=1>
+				<tr><th>Name</th><th>Course</th><th>Salary</th><th>Years</th></tr>
+				<tr ng-repeat="details in courseDetails | filter :search2">
+					<td>{{details.name | uppercase}}</td>
+					<td>{{details.course |uppercase}}</td>
+					<td>{{details.salary | currency :"&#8377"}}</td>
+					<td>{{details.years}}</td>
+				</tr>
+			</table>
+		</div>
+
+	</body>
+</html>
+

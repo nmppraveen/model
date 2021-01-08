@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	body{
+		background-color: lightblue
+	}
+</style>
+</head>
+<body>
+<center><h1>JSOn-Parse(18IT061)</h1></center>
+<h3>Contents in the table are JSOn parsed values</h3>
+<table border=1>
+<tr><th>Place</th><th>Review</th><th>Amount</th><th>Faculty</th></tr>
+<tr>
+<td id="nmp1"></td>
+<td id="nmp2"></td>
+<td id="nmp3"></td>
+<td id="nmp4"></td>
+</tr>
+</table>
+<script>
+var xmlhttp= new XMLHttpRequest();
+xmlhttp.onreadystatechange=function(){
+	if(this.readyState ==4 && this.status ==200){
+
+		var myObj=JSON.parse(this.responseText);
+		document.getElementByid("nmp1").innerHTML=myObj.PLACE
+
+	}
+};
+
+xmlhttp.open("GET","tour_json.txt",true);
+xmlhttp.send();
+</script>
+</body>
+</html>
